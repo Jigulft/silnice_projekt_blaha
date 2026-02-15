@@ -1,0 +1,361 @@
+Index: Mainmenu.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Mainmenu.html b/Mainmenu.html
+new file mode 100644
+--- /dev/null	(date 1771181603965)
++++ b/Mainmenu.html	(date 1771181603965)
+@@ -0,0 +1,15 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++</head>
++<body>
++<h1>Main Menu</h1>
++<a href="index.html">Nová mapa</a>
++<a href="savedmaps.html">Načíst mapu</a>
++
++
++<button></button>
++</body>
++</html>
+\ No newline at end of file
+Index: savedmaps.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/savedmaps.html b/savedmaps.html
+new file mode 100644
+--- /dev/null	(date 1771181558244)
++++ b/savedmaps.html	(date 1771181558244)
+@@ -0,0 +1,26 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++</head>
++<body>
++<a href="Mainmenu.html">
++    <button >zpět do menu</button>
++</a>
++<div>
++
++
++</div>
++
++
++<template id="row">
++    <div><span></span><button>Načíst</button></div>
++
++</template>
++
++
++<script src="savedmapsscript.js"></script>
++
++</body>
++</html>
+\ No newline at end of file
+Index: savedmapsscript.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/savedmapsscript.js b/savedmapsscript.js
+new file mode 100644
+--- /dev/null	(date 1771181612701)
++++ b/savedmapsscript.js	(date 1771181612701)
+@@ -0,0 +1,25 @@
++const saved = JSON.parse(localStorage.getItem("savedContainer"));
++const template = document.getElementById("row");
++
++Object.keys(saved).forEach(key => {
++    const saveditem = saved[key];
++
++    const clone = template.content.cloneNode(true);
++
++    const span = clone.querySelector("span");
++    span.innerText = saveditem.name;
++
++    const butt = clone.querySelector("button");
++
++    butt.addEventListener('click',(e) => {
++
++        localStorage.setItem('currentSave',JSON.stringify(saved[key]))
++
++        window.location.href = "index.html";
++
++    })
++
++
++    document.body.appendChild(clone);
++});
++
+Index: style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.trava{\r\n    background-image: url(\"/trava.jpg\");\r\n}\r\n.streetup{\r\n    background-image: url(\"/streetup.jpg\");\r\n}\r\n.streetright{\r\n    background-image: url(\"/streetright.jpg\");\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/style.css b/style.css
+--- a/style.css	(revision 6a4216979088149584d76951e261a11051ea9a1e)
++++ b/style.css	(date 1771181537182)
+@@ -1,9 +1,76 @@
+ .trava{
+-    background-image: url("/trava.jpg");
++
++    background-image: url("trava.jpg");
++    background-size: cover;
++    outline: 2px solid red;
+ }
++.streetup{
++    background-image: url("streetup.jpg");
++    background-size: cover;
++}
++.streetright{
++    background-image: url("streetright.jpg");
++    background-size: cover;
++
++}
++.water{
++    background-image: url("water.jpg");
++    background-size: cover;
++}
++.playboard{
++    display: grid;
++    grid-template-columns: repeat(20,1fr);
++    grid-template-rows: repeat(20,1fr);
++    height: 1080px;
++    width: 1080px;
++}.trava{
++
++     background-image: url("trava.jpg");
++     background-size: cover;
++     outline: 2px solid red;
++ }
++.streetup{
++    background-image: url("streetup.jpg");
++    background-size: cover;
++}
++.streetright{
++    background-image: url("streetright.jpg");
++    background-size: cover;
++
++}
++.water{
++    background-image: url("water.jpg");
++    background-size: cover;
++}
++.playboard{
++    display: grid;
++    grid-template-columns: repeat(20,1fr);
++    grid-template-rows: repeat(20,1fr);
++    height: 1080px;
++    width: 1080px;
++}.trava{
++
++     background-image: url("trava.jpg");
++     background-size: cover;
++     outline: 2px solid red;
++ }
+ .streetup{
+-    background-image: url("/streetup.jpg");
++    background-image: url("streetup.jpg");
++    background-size: cover;
+ }
+ .streetright{
+-    background-image: url("/streetright.jpg");
++    background-image: url("streetright.jpg");
++    background-size: cover;
++
++}
++.water{
++    background-image: url("water.jpg");
++    background-size: cover;
++}
++.playboard{
++    display: grid;
++    grid-template-columns: repeat(20,1fr);
++    grid-template-rows: repeat(20,1fr);
++    height: 1080px;
++    width: 1080px;
+ }
+\ No newline at end of file
+Index: script.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/script.js b/script.js
+--- a/script.js	(revision 6a4216979088149584d76951e261a11051ea9a1e)
++++ b/script.js	(date 1771181439760)
+@@ -1,0 +1,112 @@
++const playboard = document.querySelector('.playboard')
++const radios = document.querySelectorAll('.buttons input[type="radio"]');
++//let arr = [];
++const savebutton = document.getElementById('savemap')
++
++
++if(!localStorage.getItem("currentSave")) {
++    console.log("No saved container found");
++    for (let i = 0; i < 400; i++) {
++
++        const clickdiv = document.createElement('div');
++
++        clickdiv.classList.add('trava')
++
++
++
++        playboard.append(clickdiv)
++        //arr.push(clickdiv);
++
++    }
++
++    attachTileEvents()
++} else {
++    console.log('save')
++
++
++
++    playboard.innerHTML = JSON.parse(localStorage.getItem("currentSave")).content;
++
++
++    attachTileEvents();
++
++
++
++}
++function attachTileEvents() {
++    const tiles = playboard.querySelectorAll("div");
++
++    tiles.forEach(tile => {
++        tile.addEventListener("click", () => {
++
++            if (tile.classList.contains('trava')) {
++                tile.classList.remove('trava');
++                tile.classList.add('streetup', 'street');
++            } else if (tile.classList.contains('street')) {
++                tile.classList.remove('street', 'streetup', 'streetright');
++                tile.classList.add('water');
++            } else {
++                tile.classList.remove('water');
++                tile.classList.add('trava');
++            }
++
++            if (tile.classList.contains('streetup')) {
++                if (tile.previousElementSibling?.classList.contains('streetup') &&
++                    tile.nextElementSibling?.classList.contains('streetup')) {
++
++                    tile.nextElementSibling.classList.remove('streetup');
++                    tile.nextElementSibling.classList.add('streetright');
++
++                    tile.classList.remove('streetup');
++                    tile.classList.add('streetright');
++
++                    tile.previousElementSibling.classList.remove('streetup');
++                    tile.previousElementSibling.classList.add('streetright');
++                }
++            }
++        });
++    });
++}
++
++
++
++radios.forEach(radio => {
++    radio.addEventListener('mousedown', () => {
++        radio.wasChecked = radio.checked;
++    });
++
++    radio.addEventListener('click', event => {
++        if (radio.wasChecked) {
++            event.preventDefault();
++        }
++    });
++
++    radio.addEventListener('mouseup', () => {
++        if (radio.wasChecked) {
++            radio.checked = false;
++        }
++    });
++});
++
++
++savebutton.addEventListener('click', (e) =>{
++    const savedmap = {
++        map: {
++            name: "GrassTile",
++            content: playboard.innerHTML
++        }
++    };
++
++    localStorage.setItem("savedContainer", JSON.stringify(savedmap));
++
++
++
++})
++
++
++//const saved = localStorage.getItem("savedContainer"); if (saved) { container.innerHTML = saved; }
++
++
++function checkstate(){
++
++}
+\ No newline at end of file
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n\r\n\r\n\r\n<script src=\"script.js\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision 6a4216979088149584d76951e261a11051ea9a1e)
++++ b/index.html	(date 1771181421914)
+@@ -3,12 +3,38 @@
+ <head>
+     <meta charset="UTF-8">
+     <title>Title</title>
++    <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+ 
+ 
+ 
+ 
++
++
++
++
++
++<section CLASS="buttons">
++    <input type="radio" name="tyletype">
++
++    <input type="radio" name="tyletype">
++
++    <input type="radio" name="tyletype">
++
++
++    <input type="radio" name="tyletype">
++
++</section>
++
++<div class="playboard"></div>
++
++<button id="savemap">save map </button>
++<a href="Mainmenu.html">
++    <button >zpět do menu</button>
++</a>
++
++
+ <script src="script.js"></script>
+ </body>
+ </html>
+\ No newline at end of file
