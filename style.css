@@ -1,9 +1,24 @@
 .trava{
     background-image: url("/trava.jpg");
+    background-size: cover;
 }
 .streetup{
     background-image: url("/streetup.jpg");
+    background-size: cover;
 }
 .streetright{
     background-image: url("/streetright.jpg");
+    background-size: cover;
+
+}
+.water{
+    background-image: url("/water.jpg");
+    background-size: cover;
+}
+.playboard{
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(20,1fr);
+    height: 1080px;
+    width: 1080px;
 }
