@@ -44,15 +44,7 @@
 
 <div class="playboard"></div>
 
-<form id="form-save">
 
-    <label>Jméno uložení
-
-    <input name="savename">
-
-    </label>
-    <button type="submit" id="savemap">Uložit mapu </button>
-</form>
 
 
 <a href="Mainmenu.html">
@@ -64,13 +56,63 @@
 
 <div id="popup" class="hidden">
     <div class="popup-content">
-        <h2>My Popup</h2>
-        <p>This is a custom popup.</p>
+        <form id="form-save">
+
+            <label>Jméno uložení
+
+                <input name="savename">
+
+            </label>
+            <button type="submit" id="savemap">Uložit mapu </button>
+        </form>
         <button id="close-popup">Close</button>
     </div>
 </div>
 
-<button id="open-popup">Open Popup</button>
+
+
+<div id="popup-overlay2" class="hidden"></div>
+
+<div id="popup2" class="hidden">
+    <div class="popup-content">
+        <form id="form-jsonfile">
+
+            <label>Vložte složku JSON:
+
+                <input type="file" id="jsonFile" name="jsonfile" accept=".json">
+
+
+            </label>
+            <button type="submit" id="save2">Vložit uloženou mapu </button>
+        </form>
+        <button id="close-popup2">Close</button>
+    </div>
+</div>
+
+
+<div id="popup-overlay3" class="hidden">
+<div id="popup3" class="hidden">
+    <div class="popup-content">
+        <form id="form-directory">
+
+            <label>Napište název ukládaného souboru:
+
+                <input name="text" >
+
+            </label>
+            <button type="submit" id="save3">Uložit mapu </button>
+        </form>
+        <button id="close-popup3">Close</button>
+    </div>
+</div>
+</div>
+
+
+<button id="open-popup">Uložit mapu</button>
+
+<button id="inport-json">Vložit uloženou mapu JSON</button>
+
+<button id="export-json">Uložit mapu jako JSON</button>
 
 
 

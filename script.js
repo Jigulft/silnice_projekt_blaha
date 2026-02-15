@@ -1,6 +1,6 @@
 const playboard = document.querySelector('.playboard')
 const radios = document.querySelectorAll('.buttons input[type="radio"]');
-//let arr = [];
+
 const savebutton = document.getElementById('savemap')
 const popup = document.getElementById("popup");
 const overlay = document.getElementById("popup-overlay");
@@ -46,6 +46,9 @@ function attachTileEvents() {
     tiles.forEach(tile => {
         tile.addEventListener("click", () => {
 
+
+
+
             if (tile.classList.contains('trava')) {
                 tile.classList.remove('trava');
                 tile.classList.add('streetup', 'street');
@@ -71,6 +74,18 @@ function attachTileEvents() {
                     tile.previousElementSibling.classList.add('streetright');
                 }
             }
+
+            const savedmap = {
+                map: {
+                    name: formsave.savename.value,
+                    content: playboard.innerHTML
+                }
+            };
+
+
+            localStorage.setItem("currentSave", JSON.stringify(savedmap));
+
+
         });
     });
 }
@@ -96,19 +111,7 @@ radios.forEach(radio => {
 });
 
 
-// savebutton.addEventListener('click', (e) =>{
-//     const savedmap = {
-//         map: {
-//             name: "GrassTile",
-//             content: playboard.innerHTML
-//         }
-//     };
-//
-//     localStorage.setItem("savedContainer", JSON.stringify(savedmap));
-//
-//
-//
-// })
+
 formsave.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -134,6 +137,9 @@ formsave.addEventListener('submit', (e) => {
 
         localStorage.setItem("savedContainer", JSON.stringify(saves));
         localStorage.setItem("currentSave", JSON.stringify(savedmap));
+
+        popup.classList.add("hidden");
+        overlay.classList.add("hidden");
     }
 });
 
@@ -162,8 +168,90 @@ overlay.addEventListener("click", () => {
 });
 
 
+popup2 = document.getElementById('popup2')
+overlay2 = document.getElementById('popup-overlay2')
+
+popup3 = document.getElementById('popup3')
+overlay3 = document.getElementById('popup-overlay3')
+
+
+const jsoninportbutton = document.getElementById('inport-json')
+const jsonexportbutton = document.getElementById('export-json')
+
+
+jsoninportbutton.addEventListener('click', (e) =>{
+    console.log('daf')
+    popup2.classList.remove("hidden");
+    overlay2.classList.remove("hidden");
+
+})
+
+jsonexportbutton.addEventListener('click', (e) =>{
+    console.log('fad')
+
+    popup3.classList.remove("hidden");
+    overlay3.classList.remove("hidden");
+
+})
+
+
+const directory_form = document.getElementById('form-directory')
+
+
+directory_form.addEventListener('submit',(e) =>{
+
+
+
+    const savedmap = {
+        map: {
+            name: formsave.savename.value,
+            content: playboard.innerHTML
+        }
+    };
+
+
+
+    exportJSON(savedmap, directory_form.text.value)
+})
+
+const jsonfileform = document.getElementById('form-jsonfile')
+
+
+
+
+jsonfileform.addEventListener('submit', (e) => {
+
+
+
+
+    const file = jsonfileform.jsonfile.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+        const data = JSON.parse(String(reader.result));
+
+        // Add to saves
+        saves.push(data);
+
+        // Save as current save
+        localStorage.setItem("currentSave", JSON.stringify(data));
+
+        // NOW show popup (after data is loaded)
+        popup2.classList.remove("hidden");
+        overlay2.classList.remove("hidden");
+    };
+
+    reader.readAsText(file);
+});
+
+
+
+
+
 function exportJSON(data, filename = "data.json") {
-    const json = JSON.stringify(data, null, 2); // hezké formátování
+    const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
 
@@ -173,19 +261,12 @@ function exportJSON(data, filename = "data.json") {
     a.click();
 
     URL.revokeObjectURL(url);
+
+    popup3.classList.remove("hidden");
+    overlay3.classList.remove("hidden");
 }
-// document.getElementById("jsonFile").addEventListener("change", function () {
-//     const file = this.files[0];
-//     const reader = new FileReader();
-//
-//     reader.onload = function () {
-//         const data = JSON.parse(reader.result);
-//         saves.push(data)
-//
-//
-//     };
-//
-//     reader.readAsText(file);
-// });
+
+
+
 
 
