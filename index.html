@@ -16,23 +16,66 @@
 
 
 <section CLASS="buttons">
-    <input type="radio" name="tyletype">
+    <input type="radio" value="streetup" name="tyletype">
 
-    <input type="radio" name="tyletype">
+    <input type="radio" value="streetdown" name="tyletype">
 
-    <input type="radio" name="tyletype">
+    <input type="radio" value="crossroad" name="tyletype">
 
 
-    <input type="radio" name="tyletype">
+    <input type="radio" value="turnleftdown" name="tyletype">
+
+    <input type="radio" value="turnleftup" name="tyletype">
+
+    <input type="radio" value="turnrightdown" name="tyletype">
+
+    <input type="radio" value="turnrightdown" name="tyletype">
+
+    <input type="radio" value="T-up" name="tyletype">
+
+    <input type="radio" value="T-dow" name="tyletype">
+
+    <input type="radio" value="T-left" name="tyletype">
+
+    <input type="radio" value="T-right" name="tyletype">
+
 
 </section>
 
 <div class="playboard"></div>
 
-<button id="savemap">save map </button>
+<form id="form-save">
+
+    <label>Jméno uložení
+
+    <input name="savename">
+
+    </label>
+    <button type="submit" id="savemap">Uložit mapu </button>
+</form>
+
+
 <a href="Mainmenu.html">
     <button >zpět do menu</button>
 </a>
+
+
+<div id="popup-overlay" class="hidden"></div>
+
+<div id="popup" class="hidden">
+    <div class="popup-content">
+        <h2>My Popup</h2>
+        <p>This is a custom popup.</p>
+        <button id="close-popup">Close</button>
+    </div>
+</div>
+
+<button id="open-popup">Open Popup</button>
+
+
+
+
+
 
 
 <script src="script.js"></script>

@@ -1,25 +1,42 @@
-const saved = JSON.parse(localStorage.getItem("savedContainer"));
 const template = document.getElementById("row");
+const saves = JSON.parse(localStorage.getItem("savedContainer")) || [];
 
-Object.keys(saved).forEach(key => {
-    const saveditem = saved[key];
+saves.forEach(saveditem => {
 
     const clone = template.content.cloneNode(true);
 
+
     const span = clone.querySelector("span");
-    span.innerText = saveditem.name;
+    span.innerText = saveditem.map.name;
 
-    const butt = clone.querySelector("button");
 
-    butt.addEventListener('click',(e) => {
+    const butt = clone.querySelector(".loadbutt");
 
-        localStorage.setItem('currentSave',JSON.stringify(saved[key]))
+    butt.addEventListener('click', () => {
+
+
+        localStorage.setItem('currentSave', JSON.stringify(saveditem));
+
 
         window.location.href = "index.html";
+    });
 
-    })
+    const delbutt = clone.querySelector(".deletebutt");
 
+    delbutt.addEventListener('click', () => {
+
+
+        saves.splice(saves.indexOf(saveditem),1)
+
+
+        localStorage.setItem("savedContainer", JSON.stringify(saves));
+
+        window.location.reload()
+
+
+    });
 
     document.body.appendChild(clone);
 });
+
 
