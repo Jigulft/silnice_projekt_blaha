@@ -1,0 +1,26 @@
+#row div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.loadbutt {
+    background: #28a745;
+}
+
+.loadbutt:hover {
+    background: #1e7e34;
+}
+
+.deletebutt {
+    background: #dc3545;
+}
+
+.deletebutt:hover {
+    background: #b52a37;
+}

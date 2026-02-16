@@ -2,8 +2,33 @@
 
     background-image: url("trava.jpg");
     background-size: cover;
-    outline: 2px solid red;
+
 }
+.buttons > label > image{
+    height: 100px;
+    width: 100px;
+}
+label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+label input[type="radio"] {
+    display: none;
+}
+
+
+label img { border: 3px solid transparent;
+
+     }
+label input[type="radio"]:checked + img {
+
+    border-color: red;
+
+}
+
+
+
 .streetup{
     background-image: url("streetup.jpg");
     background-size: cover;
@@ -17,69 +42,71 @@
     background-image: url("water.jpg");
     background-size: cover;
 }
-.playboard{
+.crossroad{
+    background-image: url("crossroad.jpg");
+    background-size: cover;
+}
+.turnleftdown{
+    background-image: url("turn-left_down.jpg");
+    background-size: cover;
+}
+.turnleftup{
+    background-image: url("turn-left_up.jpg");
+    background-size: cover;
+}
+.turnrightdown{
+    background-image: url("turn-right_down.jpg");
+    background-size: cover;
+}
+.turnrightup{
+    background-image: url("turn-right_up.jpg");
+    background-size: cover;
+}
+.T-up{
+    background-image: url("T_no_up.png");
+    background-size: cover;
+}
+.T-down{
+    background-image: url("T_no_down.png");
+    background-size: cover;
+}
+.T-left{
+    background-image: url("T_no_left.png");
+    background-size: cover;
+}
+.T-right{
+    background-image: url("T_no_right.png");
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+.playboard {
     display: grid;
-    grid-template-columns: repeat(20,1fr);
-    grid-template-rows: repeat(20,1fr);
-    height: 1080px;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
     width: 1080px;
+    height: 1080px;
+    margin: 20px auto;
+    border: 4px solid #333;
+    background: white;
 }
 
 
 
-.popup-content {
-    text-align: center;
-}
 .hidden {
-    visibility: hidden;
-}
-
-#popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 10;
-}
-
-#popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 11;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    display: none;
 }
 
 
-
-#popup-overlay2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 10;
-}
-
-#popup2 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 11;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-}
-
+#popup-overlay,
+#popup-overlay2,
 #popup-overlay3 {
     position: fixed;
     top: 0;
@@ -89,6 +116,31 @@
     background: rgba(0,0,0,0.5);
     z-index: 10;
 }
+
+
+#popup,
+#popup2,
+#popup3 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    z-index: 11;
+    width: 350px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content form {
+    margin-bottom: 15px;
+}
+
 
 #popup3 {
     position: fixed;
@@ -103,3 +155,35 @@
 }
 
 
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.buttons label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+label input[type="radio"] {
+    display: none;
+}
+
+label img {
+    width: 90px;
+    height: 90px;
+    border: 3px solid transparent;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+label img:hover {
+    transform: scale(1.05);
+}
+
+
+label input[type="radio"]:checked + img {
+    border-color: red;
+}

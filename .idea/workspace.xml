@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30999179-f48f-4462-9553-ebae4b3c6501" name="Changes" comment="popup + saving multiple maps to localstorage">
+    <list default="true" id="30999179-f48f-4462-9553-ebae4b3c6501" name="Changes" comment="import,export -json">
+      <change afterPath="$PROJECT_DIR$/Mainmenustyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/globalstyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/savedmapsstyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mainmenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mainmenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SaveMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/SaveMap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SaveMapscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/SaveMapscript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedmaps.html" beforeDir="false" afterPath="$PROJECT_DIR$/savedmaps.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -23,6 +30,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -64,6 +72,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "copy__feture",
     "last_opened_file_path": "C:/Users/jiri6/Desktop/silnice_projekt_blaha",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,7 +104,7 @@
       <workItem from="1771181360855" duration="2000" />
       <workItem from="1771181398102" duration="481000" />
       <workItem from="1771181952286" duration="28000" />
-      <workItem from="1771182001017" duration="14627000" />
+      <workItem from="1771182001017" duration="21007000" />
     </task>
     <task id="LOCAL-00001" summary="saving to localstorage+ start menu silnic">
       <option name="closed" value="true" />
@@ -113,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771191700580</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="import,export -json">
+      <option name="closed" value="true" />
+      <created>1771196993233</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771196993233</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="saving to localstorage+ start menu silnic" />
     <MESSAGE value="popup + saving multiple maps to localstorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="popup + saving multiple maps to localstorage" />
+    <MESSAGE value="import,export -json" />
+    <option name="LAST_COMMIT_MESSAGE" value="import,export -json" />
   </component>
 </project>

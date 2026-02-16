@@ -1,18 +1,19 @@
 const playboard = document.querySelector('.playboard')
 const radios = document.querySelectorAll('.buttons input[type="radio"]');
-
-const savebutton = document.getElementById('savemap')
-const popup = document.getElementById("popup");
-const overlay = document.getElementById("popup-overlay");
 const formsave = document.getElementById("form-save");
 let saves = JSON.parse(localStorage.getItem("savedContainer")) || [];
-
 const current = JSON.parse(localStorage.getItem("currentSave") || "null");
+let value = document.querySelector('input[name="tiletype"]:checked')?.value;
+const clearbutton = document.getElementById('clear-button')
+const radiosbuttons = document.querySelectorAll('input[type="radio"]');
+const popup1 = document.getElementById("popup1");
+const popup2 = document.getElementById("popup1");
+const popup3 = document.getElementById("popup1");
+const overlay1=document.getElementById("overlay1");
+const overlay2=document.getElementById("overlay2");
+const overlay3=document.getElementById("overlay3");
 
-
-
-if(!current) {
-    console.log("No saved container found");
+function clearmap(){
     for (let i = 0; i < 400; i++) {
 
         const clickdiv = document.createElement('div');
@@ -20,59 +21,93 @@ if(!current) {
         clickdiv.classList.add('trava')
 
 
-
         playboard.append(clickdiv)
-        //arr.push(clickdiv);
+
 
     }
 
     attachTileEvents()
+}
+clearbutton.addEventListener('click', (e) =>{
+
+
+    localStorage.removeItem('currentSave')
+    clearmap()
+    window.location.reload()
+
+})
+
+
+if(!current) {
+    console.log("No saved container found");
+    clearmap()
 } else {
-
-
 
 
     playboard.innerHTML = current.map.content;
 
-
     attachTileEvents();
 
-
-
 }
+
+
+
+
+
+for (const radio of radiosbuttons) {
+    radio.addEventListener('change', (event) => {
+        value = event.target.value;
+        console.log("Vybraná hodnota:", value);
+    });
+}
+
+
+
+
+
+
+
 function attachTileEvents() {
     const tiles = playboard.querySelectorAll("div");
+
+
+
 
     tiles.forEach(tile => {
         tile.addEventListener("click", () => {
 
+            console.log(value)
 
-
-
-            if (tile.classList.contains('trava')) {
-                tile.classList.remove('trava');
-                tile.classList.add('streetup', 'street');
-            } else if (tile.classList.contains('street')) {
-                tile.classList.remove('street', 'streetup', 'streetright');
-                tile.classList.add('water');
-            } else {
-                tile.classList.remove('water');
-                tile.classList.add('trava');
-            }
-
-            if (tile.classList.contains('streetup')) {
-                if (tile.previousElementSibling?.classList.contains('streetup') &&
-                    tile.nextElementSibling?.classList.contains('streetup')) {
-
-                    tile.nextElementSibling.classList.remove('streetup');
-                    tile.nextElementSibling.classList.add('streetright');
-
-                    tile.classList.remove('streetup');
-                    tile.classList.add('streetright');
-
-                    tile.previousElementSibling.classList.remove('streetup');
-                    tile.previousElementSibling.classList.add('streetright');
+            if(!value) {
+                if (tile.classList.contains('trava')) {
+                    tile.classList = ""
+                    tile.classList.add('streetup', 'street');
+                } else if (tile.classList.contains('street')) {
+                    tile.classList = ""
+                    tile.classList.add('water');
+                } else {
+                    tile.classList = ""
+                    tile.classList.add('trava');
                 }
+
+                if (tile.classList.contains('streetup')) {
+                    if (tile.previousElementSibling?.classList.contains('streetup') &&
+                        tile.nextElementSibling?.classList.contains('streetup')) {
+
+                        tile.nextElementSibling.classList.remove('streetup');
+                        tile.nextElementSibling.classList.add('streetright');
+
+                        tile.classList.remove('streetup');
+                        tile.classList.add('streetright');
+
+                        tile.previousElementSibling.classList.remove('streetup');
+                        tile.previousElementSibling.classList.add('streetright');
+                    }
+                }
+            }else{
+                tile.classList = ""
+                tile.classList.add(String(value))
+
             }
 
             const savedmap = {
@@ -127,7 +162,7 @@ formsave.addEventListener('submit', (e) => {
 
         formsave.savename.value = '';
 
-        // Always load fresh and ensure it's an array
+
 
         if (!Array.isArray(saves)) {
             saves = [];
@@ -138,8 +173,8 @@ formsave.addEventListener('submit', (e) => {
         localStorage.setItem("savedContainer", JSON.stringify(saves));
         localStorage.setItem("currentSave", JSON.stringify(savedmap));
 
-        popup.classList.add("hidden");
-        overlay.classList.add("hidden");
+        popup1.classList.add("hidden");
+        overlay1.classList.add("hidden");
     }
 });
 
@@ -151,48 +186,43 @@ formsave.addEventListener('submit', (e) => {
 
 
 
+
+
 document.getElementById("open-popup").addEventListener("click", () => {
-    popup.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+    document.getElementById("popup1").classList.remove("hidden");
+    document.getElementById("overlay1").classList.remove("hidden");
 });
 
-document.getElementById("close-popup").addEventListener("click", () => {
-    popup.classList.add("hidden");
-    overlay.classList.add("hidden");
+document.getElementById("inport-json").addEventListener("click", () => {
+    document.getElementById("popup2").classList.remove("hidden");
+    document.getElementById("overlay2").classList.remove("hidden");
+});
+
+document.getElementById("export-json").addEventListener("click", () => {
+    document.getElementById("popup3").classList.remove("hidden");
+    document.getElementById("overlay3").classList.remove("hidden");
 });
 
 
-overlay.addEventListener("click", () => {
-    popup.classList.add("hidden");
-    overlay.classList.add("hidden");
+
+document.querySelectorAll(".close-popup").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const popup = btn.closest(".popup");
+        const overlay = popup.nextElementSibling;
+
+        popup.classList.add("hidden");
+        overlay.classList.add("hidden");
+    });
 });
 
 
-popup2 = document.getElementById('popup2')
-overlay2 = document.getElementById('popup-overlay2')
+document.querySelectorAll(".popup-overlay").forEach(overlay => {
+    overlay.addEventListener("click", () => {
+        overlay.classList.add("hidden");
+        overlay.previousElementSibling.classList.add("hidden");
+    });
+});
 
-popup3 = document.getElementById('popup3')
-overlay3 = document.getElementById('popup-overlay3')
-
-
-const jsoninportbutton = document.getElementById('inport-json')
-const jsonexportbutton = document.getElementById('export-json')
-
-
-jsoninportbutton.addEventListener('click', (e) =>{
-    console.log('daf')
-    popup2.classList.remove("hidden");
-    overlay2.classList.remove("hidden");
-
-})
-
-jsonexportbutton.addEventListener('click', (e) =>{
-    console.log('fad')
-
-    popup3.classList.remove("hidden");
-    overlay3.classList.remove("hidden");
-
-})
 
 
 const directory_form = document.getElementById('form-directory')

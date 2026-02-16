@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="globalstyle.css">
 </head>
 <body>
 
@@ -16,28 +17,101 @@
 
 
 <section CLASS="buttons">
-    <input type="radio" value="streetup" name="tyletype">
+    <label>
 
-    <input type="radio" value="streetdown" name="tyletype">
+        <input type="radio" value="streetup" name="tyletype">
+        <img src="streetup.jpg" class="radioimages" alt="streetup">
 
-    <input type="radio" value="crossroad" name="tyletype">
+    </label>
 
 
-    <input type="radio" value="turnleftdown" name="tyletype">
 
-    <input type="radio" value="turnleftup" name="tyletype">
 
-    <input type="radio" value="turnrightdown" name="tyletype">
+    <label>
 
-    <input type="radio" value="turnrightdown" name="tyletype">
+        <input type="radio" value="crossroad" name="tyletype">
+        <img src="crossroad.jpg" class="radioimages" alt="crossroad">
 
-    <input type="radio" value="T-up" name="tyletype">
+    </label>
 
-    <input type="radio" value="T-dow" name="tyletype">
+    <label>
 
-    <input type="radio" value="T-left" name="tyletype">
+        <input type="radio" value="streetright" name="tyletype">
+        <img src="streetright.jpg" class="radioimages" alt="streetright">
 
-    <input type="radio" value="T-right" name="tyletype">
+    </label>
+
+    <label>
+
+        <input type="radio" value="water" name="tyletype">
+        <img src="water.jpg" class="radioimages" alt="water">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="trava" name="tyletype">
+        <img src="trava.jpg" class="radioimages" alt="trava">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="turnleftdown" name="tyletype">
+        <img src="turn-left_down.jpg" class="radioimages" alt="turn-left_down">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="turnleftup" name="tyletype">
+        <img src="turn-left_up.jpg" class="radioimages" alt="turn-left_up">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="turnrightdown" name="tyletype">
+        <img src="turn-right_down.jpg" class="radioimages" alt="turn-right_down">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="turnrightdown" name="tyletype">
+        <img src="turn-right_up.jpg" class="radioimages" alt="turn-right_up">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="T-up" name="tyletype">
+        <img src="T_no_up.png" class="radioimages" alt="T_no_up">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="T-down" name="tyletype">
+        <img src="T_no_down.png" class="radioimages" alt="T_no_down">
+
+    </label>
+
+    <label>
+
+        <input type="radio" value="T-left" name="tyletype">
+        <img src="T_no_left.png" class="radioimages" alt="T_no_left">
+
+    </label>
+
+
+    <label>
+
+        <input type="radio" value="T-right" name="tyletype">
+        <img src="T_no_right.png" class="radioimages" alt="T_no_right">
+
+    </label>
+
 
 
 </section>
@@ -47,66 +121,59 @@
 
 
 
-<a href="Mainmenu.html">
-    <button >zpět do menu</button>
-</a>
 
 
-<div id="popup-overlay" class="hidden"></div>
+<section>
+<div class="hidden popup-overlay"></div>
 
-<div id="popup" class="hidden">
+<div class="popup hidden" id="popup1">
     <div class="popup-content">
         <form id="form-save">
-
             <label>Jméno uložení
-
                 <input name="savename">
-
             </label>
-            <button type="submit" id="savemap">Uložit mapu </button>
+            <button type="submit" id="savemap">Uložit mapu</button>
         </form>
-        <button id="close-popup">Close</button>
+        <button class="close-popup">Close</button>
     </div>
 </div>
+<div class="popup-overlay hidden" id="overlay1"></div>
 
 
-
-<div id="popup-overlay2" class="hidden"></div>
-
-<div id="popup2" class="hidden">
+<div class="popup hidden" id="popup2">
     <div class="popup-content">
         <form id="form-jsonfile">
-
             <label>Vložte složku JSON:
-
                 <input type="file" id="jsonFile" name="jsonfile" accept=".json">
-
-
             </label>
-            <button type="submit" id="save2">Vložit uloženou mapu </button>
+            <button type="submit" id="save2">Vložit uloženou mapu</button>
         </form>
-        <button id="close-popup2">Close</button>
+        <button class="close-popup">Close</button>
     </div>
 </div>
+<div class="popup-overlay hidden" id="overlay2"></div>
 
 
-<div id="popup-overlay3" class="hidden">
-<div id="popup3" class="hidden">
+<div class="popup hidden" id="popup3">
     <div class="popup-content">
         <form id="form-directory">
-
             <label>Napište název ukládaného souboru:
-
-                <input name="text" >
-
+                <input name="text">
             </label>
-            <button type="submit" id="save3">Uložit mapu </button>
+            <button type="submit" id="save3">Uložit mapu</button>
         </form>
-        <button id="close-popup3">Close</button>
+        <button class="close-popup">Close</button>
     </div>
 </div>
-</div>
+<div class="popup-overlay hidden" id="overlay3"></div>
+</section>
 
+
+<section>
+
+    <a href="Mainmenu.html">
+        <button >zpět do menu</button>
+    </a>
 
 <button id="open-popup">Uložit mapu</button>
 
@@ -114,9 +181,11 @@
 
 <button id="export-json">Uložit mapu jako JSON</button>
 
+<button id="clear-button">Vyčistit mapu</button>
 
 
 
+</section>
 
 
 
