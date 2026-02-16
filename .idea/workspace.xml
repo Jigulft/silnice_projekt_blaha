@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30999179-f48f-4462-9553-ebae4b3c6501" name="Changes" comment="import,export -json">
-      <change afterPath="$PROJECT_DIR$/Mainmenustyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/globalstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/savedmapsstyle.css" afterDir="false" />
+    <list default="true" id="30999179-f48f-4462-9553-ebae4b3c6501" name="Changes" comment="silnice menu a style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Mainmenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SaveMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/SaveMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SaveMapscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/SaveMapscript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savedmaps.html" beforeDir="false" afterPath="$PROJECT_DIR$/savedmaps.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -71,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "copy__feture",
-    "last_opened_file_path": "C:/Users/jiri6/Desktop/silnice_projekt_blaha",
+    "last_opened_file_path": "C:/Users/blahajiri/Desktop/silnice_projekt_blaha",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -89,8 +82,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PS-252.26830.95" />
-        <option value="bundled-php-predefined-a98d8de5180a-9b563d34894c-com.jetbrains.php.sharedIndexes-PS-252.26830.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PS-251.25410.148" />
+        <option value="bundled-php-predefined-a98d8de5180a-c5828cf854d9-com.jetbrains.php.sharedIndexes-PS-251.25410.148" />
       </set>
     </attachedChunks>
   </component>
@@ -104,7 +97,10 @@
       <workItem from="1771181360855" duration="2000" />
       <workItem from="1771181398102" duration="481000" />
       <workItem from="1771181952286" duration="28000" />
-      <workItem from="1771182001017" duration="21007000" />
+      <workItem from="1771182001017" duration="21047000" />
+      <workItem from="1771203364549" duration="18000" />
+      <workItem from="1771203798989" duration="19000" />
+      <workItem from="1771225511335" duration="1723000" />
     </task>
     <task id="LOCAL-00001" summary="saving to localstorage+ start menu silnic">
       <option name="closed" value="true" />
@@ -130,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1771196993233</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="silnice menu a style">
+      <option name="closed" value="true" />
+      <created>1771203326448</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771203326448</updated>
+    </task>
+    <task id="LOCAL-00005" summary="silnice menu a style">
+      <option name="closed" value="true" />
+      <created>1771203338399</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1771203338399</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +152,7 @@
     <MESSAGE value="saving to localstorage+ start menu silnic" />
     <MESSAGE value="popup + saving multiple maps to localstorage" />
     <MESSAGE value="import,export -json" />
-    <option name="LAST_COMMIT_MESSAGE" value="import,export -json" />
+    <MESSAGE value="silnice menu a style" />
+    <option name="LAST_COMMIT_MESSAGE" value="silnice menu a style" />
   </component>
 </project>

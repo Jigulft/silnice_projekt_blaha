@@ -27,7 +27,9 @@ label input[type="radio"]:checked + img {
 
 }
 
-
+.error{
+    color: red;
+}
 
 .streetup{
     background-image: url("streetup.jpg");
@@ -82,11 +84,6 @@ label input[type="radio"]:checked + img {
 
 
 
-
-
-
-
-
 .playboard {
     display: grid;
     grid-template-columns: repeat(20, 1fr);
@@ -95,7 +92,7 @@ label input[type="radio"]:checked + img {
     height: 1080px;
     margin: 20px auto;
     border: 4px solid #333;
-    background: white;
+
 }
 
 
@@ -105,7 +102,7 @@ label input[type="radio"]:checked + img {
 }
 
 
-#popup-overlay,
+#popup-overlay1,
 #popup-overlay2,
 #popup-overlay3 {
     position: fixed;
@@ -118,7 +115,7 @@ label input[type="radio"]:checked + img {
 }
 
 
-#popup,
+#popup1,
 #popup2,
 #popup3 {
     position: fixed;
@@ -142,17 +139,7 @@ label input[type="radio"]:checked + img {
 }
 
 
-#popup3 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 11;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-}
+
 
 
 .buttons {

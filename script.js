@@ -145,7 +145,7 @@ radios.forEach(radio => {
     });
 });
 
-
+const formsaveerror = formsave.querySelector('.error')
 
 formsave.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -175,6 +175,9 @@ formsave.addEventListener('submit', (e) => {
 
         popup1.classList.add("hidden");
         overlay1.classList.add("hidden");
+    }else{
+
+        formsaveerror.classList.remove('hidden')
     }
 });
 
@@ -226,10 +229,12 @@ document.querySelectorAll(".popup-overlay").forEach(overlay => {
 
 
 const directory_form = document.getElementById('form-directory')
-
+const exportjsonerror = directory_form.querySelector('.error')
 
 directory_form.addEventListener('submit',(e) =>{
 
+
+if(formsave.savename.value) {
 
 
     const savedmap = {
@@ -240,12 +245,15 @@ directory_form.addEventListener('submit',(e) =>{
     };
 
 
-
     exportJSON(savedmap, directory_form.text.value)
+}else{
+    e.preventDefault()
+    exportjsonerror.classList.remove('hidden')
+}
 })
 
 const jsonfileform = document.getElementById('form-jsonfile')
-
+const inportjsonerror = jsonfileform.querySelector('.error')
 
 
 
@@ -254,26 +262,31 @@ jsonfileform.addEventListener('submit', (e) => {
 
 
 
-    const file = jsonfileform.jsonfile.files[0];
-    if (!file) return;
+        const file = jsonfileform.jsonfile.files[0];
 
-    const reader = new FileReader();
+    if(file !== undefined) {
 
-    reader.onload = function () {
-        const data = JSON.parse(String(reader.result));
+        const reader = new FileReader();
 
-        // Add to saves
-        saves.push(data);
+        reader.onload = function () {
+            const data = JSON.parse(String(reader.result));
 
-        // Save as current save
-        localStorage.setItem("currentSave", JSON.stringify(data));
 
-        // NOW show popup (after data is loaded)
-        popup2.classList.remove("hidden");
-        overlay2.classList.remove("hidden");
-    };
+            saves.push(data);
 
-    reader.readAsText(file);
+
+            localStorage.setItem("currentSave", JSON.stringify(data));
+
+
+            popup2.classList.remove("hidden");
+            overlay2.classList.remove("hidden");
+        };
+
+        reader.readAsText(file);
+    }else{
+        e.preventDefault()
+        inportjsonerror.classList.remove('hidden')
+    }
 });
 
 

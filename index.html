@@ -131,6 +131,8 @@
         <form id="form-save">
             <label>Jméno uložení
                 <input name="savename">
+
+                <p class="hidden error">Název složky v localstorage nesmí být prázdný</p>
             </label>
             <button type="submit" id="savemap">Uložit mapu</button>
         </form>
@@ -145,6 +147,8 @@
         <form id="form-jsonfile">
             <label>Vložte složku JSON:
                 <input type="file" id="jsonFile" name="jsonfile" accept=".json">
+
+                <p class="hidden error">Složka musí být zadána</p>
             </label>
             <button type="submit" id="save2">Vložit uloženou mapu</button>
         </form>
@@ -159,7 +163,9 @@
         <form id="form-directory">
             <label>Napište název ukládaného souboru:
                 <input name="text">
+                <p class="hidden error">Název souboru nesmí být prázdný</p>
             </label>
+
             <button type="submit" id="save3">Uložit mapu</button>
         </form>
         <button class="close-popup">Close</button>
@@ -175,7 +181,7 @@
         <button >zpět do menu</button>
     </a>
 
-<button id="open-popup">Uložit mapu</button>
+<button id="open-popup">Uložit mapu do localstorage</button>
 
 <button id="inport-json">Vložit uloženou mapu JSON</button>
 
